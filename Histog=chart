@@ -1,0 +1,28 @@
+Histograms
+#A histogram is used to plot the distribution of a numeric variable. It's the quantitative version of the bar chart. 
+#However, rather than plot one bar for each unique numeric value, values are grouped into continuous bins, 
+#and one bar for each bin is plotted depicting the number. For instance, using the default settings for matplotlib's hist function:
+
+plt.hist(data = df, x = 'num_var')
+
+plt.figure(figsize = [10, 5]) # larger figure size for subplots
+
+# histogram on left, example of too-large bin size
+plt.subplot(1, 2, 1) # 1 row, 2 cols, subplot 1
+bin_edges = np.arange(0, df['num_var'].max()+4, 4)
+plt.hist(data = df, x = 'num_var', bins = bin_edges)
+
+# histogram on right, example of too-small bin size
+plt.subplot(1, 2, 2) # 1 row, 2 cols, subplot 2
+bin_edges = np.arange(0, df['num_var'].max()+1/4, 1/4)
+plt.hist(data = df, x = 'num_var', bins = bin_edges)
+
+#Alternative Approach
+#The seaborn function distplot can also be used to plot a histogram, 
+#and is integrated with other univariate plotting functions.
+
+bin_edges = np.arange(0, df['num_var'].max()+1, 1)
+sb.distplot(df['num_var'], bins = bin_edges, kde = False,hist_kws = {'alpha' : 1})
+#kde: The distplot function has built-in rules for specifying histogram bins, 
+#and by default plots a curve depicting the kernel density estimate (KDE) on top of the data.
+#setting the ked to false to unshow the curve
