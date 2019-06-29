@@ -1,6 +1,6 @@
 # Data-Visualization
 
-Bar chart for qualitative data
+Bar chart for qualitative data;
 Histogram chart for quantitative data
 
 Bar chart:
