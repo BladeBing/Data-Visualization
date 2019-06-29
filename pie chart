@@ -1,1 +1,20 @@
 
+##If you want to use a pie chart, try to follow certain guidelines:
+1.Make sure that your interest is in relative frequencies.
+2.Limit the number of slices plotted.(two or three parts are most favorable) 
+3.Plot the data systematically. 
+
+# code for the pie chart seen above
+sorted_counts = df['cat_var'].value_counts()
+plt.pie(sorted_counts, labels = sorted_counts.index, startangle = 90,
+        counterclock = False);
+plt.axis('square')
+
+
+# creat a donut pie chart,you can add a "wedgeprops" argument to the pie function call. By default, the radius of the pie (circle) is 1; 
+#setting the wedges' width property to less than 1 removes coloring from the center of the circle.
+
+sorted_counts = df['cat_var'].value_counts()
+plt.pie(sorted_counts, labels = sorted_counts.index, startangle = 90,
+        counterclock = False, wedgeprops = {'width' : 0.4});
+plt.axis('square')
